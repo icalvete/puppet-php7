@@ -8,7 +8,6 @@ Puppet manifest to install and configure php7
 
 * php7 + fpm for apache2
 * php7 cli
-* include phalcon module (Only for Ubuntu saucy)
 
 ##Requires:
 
