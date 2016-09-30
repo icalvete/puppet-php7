@@ -27,17 +27,6 @@ class php7::install inherits php7::params {
     require => Package[$php7::params::php7_cli_package]
   }
 
-  case $::operatingsystem {
-
-    /^(Debian|Ubuntu)$/: {
-
-      package {"libapache2-mod-php7.${php7::params::version}":
-        ensure => purged
-      }
-    }
-    default:{}
-  }
-
   if $php7::params::php7_modules {
     php7::module { $php7::params::php7_modules:}
   }
