@@ -41,6 +41,7 @@ class php7::params {
       $php7_cli_phpconf  = "/etc/php/7.${version}/cli/conf.d"
       $php7_includepath  = '/usr/share/php'
       $php7_fpm_phpini   = "/etc/php/7.${version}/fpm/php.ini"
+      $php7_memcachedini = "/etc/php/7.${version}/mods-available/memcached.ini"
       $php7_fpm_phpconf  = "/etc/php/7.${version}/fpm/conf.d"
       $php7_fpm_conf     = "/etc/php/7.${version}/fpm/php-fpm.conf"
       $php7_fpm_www_pool = "/etc/php/7.${version}/fpm/pool.d/www.conf"
