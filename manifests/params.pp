@@ -30,7 +30,7 @@ class php7::params {
 
       case $::lsbdistcodename {
         /^(saucy|trusty)/: {
-          $php7_modules = ["php7.${version}-curl","php7.${version}-mysql", "php7.${version}-json", "php7.${version}-mcrypt", "php7.${version}-gd", "php7.${version}-mbstring", "php7.${version}-bcmath", "php7.${version}-xml",  'php-mongodb', 'php-memcached']
+          $php7_modules = ["php7.${version}-curl","php7.${version}-mysql", "php7.${version}-json", "php7.${version}-mcrypt", "php7.${version}-gd", "php7.${version}-mbstring", "php7.${version}-bcmath", "php7.${version}-xml", "php7.${version}-sqlite3",  'php-mongodb', 'php-memcached']
         }
         default: {
           $php7_modules = ["php7.${version}-curl","php7.${version}-mysqlnd", "php7.${version}-json", "php7.${version}-mcrypt", "php7.${version}-gd"]
