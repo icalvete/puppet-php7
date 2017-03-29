@@ -1,6 +1,14 @@
 class php7::params {
 
-  $version  = 0
+  case $::lsbdistcodename {
+    /^(saucy|trusty)/: {
+      $version  = 0
+    }
+    default: {
+      $version  = 1
+    }
+  }
+
   $env      = $::environment
   $timezone = 'Europe/Madrid'
 
