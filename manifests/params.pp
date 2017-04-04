@@ -37,7 +37,7 @@ class php7::params {
       $php7_fpm_package = ["php7.${version}-fpm", "php7.${version}-cgi"]
 
       case $::lsbdistcodename {
-        /^(saucy|trusty)/: {
+        /^(saucy|trusty|xenial)/: {
           $php7_modules = ["php7.${version}-curl","php7.${version}-mysql", "php7.${version}-json", "php7.${version}-mcrypt", "php7.${version}-gd", "php7.${version}-mbstring", "php7.${version}-bcmath", "php7.${version}-xml", "php7.${version}-sqlite3",  'php-mongodb', 'php-memcached']
         }
         default: {
