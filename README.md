@@ -1,4 +1,4 @@
-#puppet-php7
+# puppet-php7
 
 Puppet manifest to install and configure php7
 
@@ -9,7 +9,7 @@ Puppet manifest to install and configure php7
 * php7 + fpm for apache2
 * php7 cli
 
-##Requires:
+## Requires:
 
 * Only works on Ubuntu
 * [hiera](http://docs.puppetlabs.com/hiera/1/index.html)
@@ -17,7 +17,7 @@ Puppet manifest to install and configure php7
 * https://github.com/icalvete/puppet-common but really only need:
   + common::add_env define.
 
-##Examples:
+## Examples:
 
 Install apache2 with php7 + fpm (See http://php-fpm.org/)
 
@@ -34,11 +34,11 @@ node 'ubuntu01.smartpurposes.net' inherits test_defaults {
 }
 ```
 
-##TODO:
+## TODO:
 
 * Some values must be parametriced
 * Documentation
 
-##Authors:
+## Authors:
 		 
 Israel Calvete Talavera <icalvete@gmail.com>
