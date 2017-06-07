@@ -1,17 +1,18 @@
 class php7 (
 
-  $fpm                    = false,
-  $amqp                   = false,
-  $phalcon                = false,
-  $opcache                = false,
-  $opcache_blacklist      = [''],
-  $env                    = $php7::params::env,
-  $file_uploads           = 'Off',
-  $file_uploads_size      = $php7::params::file_uploads_size,
-  $max_execution_time_cli = $php7::params::max_execution_time,
-  $max_execution_time_fpm = $php7::params::max_execution_time,
-  $memory_limit_cli       = $php7::params::memory_limit,
-  $memory_limit_fpm       = $php7::params::memory_limit,
+  $fpm                             = false,
+  $amqp                            = false,
+  $phalcon                         = false,
+  $opcache                         = false,
+  $opcache_blacklist               = [''],
+  $env                             = $php7::params::env,
+  $file_uploads                    = 'Off',
+  $file_uploads_size               = $php7::params::file_uploads_size,
+  $max_execution_time_cli          = $php7::params::max_execution_time,
+  $max_execution_time_fpm          = $php7::params::max_execution_time,
+  $memory_limit_cli                = $php7::params::memory_limit,
+  $memory_limit_fpm                = $php7::params::memory_limit,
+  $memcached_compression_threshold = $php7::params::memcached_compression_threshold
 
 ) inherits php7::params {
 

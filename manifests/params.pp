@@ -63,4 +63,6 @@ class php7::params {
       fail ("${::operatingsystem} not supported.")
     }
   }
+
+  $memcached_compression_threshold = 15000
 }

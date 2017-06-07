@@ -49,13 +49,6 @@ class php7::php7-fpm::config {
     ]
   }
 
-  augeas{'memcached_compression_threshold':
-    context => "/files/${php7::params::php7_memcachedini}/PHP",
-    changes => [
-      'set memcached.compression_threshold 15000',
-    ]
-  }
-
   exec{ 'config_www_pool_listen':
     command => "/bin/sed -i -e \"s/listen = .*/listen = 0.0.0.0:9000/\" ${php7::params::php7_fpm_www_pool}",
     unless  => "/bin/grep 'listen = 0.0.0.0:9000' ${php7::params::php7_fpm_www_pool}"
