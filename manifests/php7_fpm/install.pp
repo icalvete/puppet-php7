@@ -1,4 +1,4 @@
-class  php7::php7-fpm::install {
+class  php7::php7_fpm::install {
 
   package {"libapache2-mod-php7.${php7::params::version}":
     ensure => purged,

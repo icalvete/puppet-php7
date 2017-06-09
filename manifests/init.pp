@@ -24,8 +24,12 @@ class php7 (
     before => Class['php7::install']
   }
 
-  class {'php7::install':
+  class {'php7::common':
     require => Anchor['php7::begin']
+  }
+
+  class {'php7::install':
+    require => Class['php7::common']
   }
 
   class {'php7::config':

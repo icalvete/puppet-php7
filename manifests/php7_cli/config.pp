@@ -1,4 +1,4 @@
-class php7::php7-cli::config {
+class php7::php7_cli::config {
 
   Augeas {
     require => Package[$php7::params::php7_cli_package]
@@ -20,7 +20,7 @@ class php7::php7-cli::config {
   augeas{'cli_performance' :
     context => "/files/${php7::params::php7_cli_phpini}/PHP",
     changes => [
-      "set max_execution_time ${php7::max_execution_time_cli}",
+      "set max_execution_time ${php7::php7_cli::max_execution_time_cli}",
       'set max_input_time 15',
       "set date.timezone ${php7::params::timezone}",
     ]
@@ -29,7 +29,7 @@ class php7::php7-cli::config {
   augeas{'cli_memory_limit' :
     context => "/files/${php7::params::php7_cli_phpini}/PHP",
     changes => [
-      "set memory_limit ${php7::memory_limit_cli}",
+      "set memory_limit ${php7::php7_cli::memory_limit_cli}",
     ]
   }
 

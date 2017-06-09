@@ -1,4 +1,4 @@
-class php7::php7-fpm::config {
+class php7::php7_fpm::config {
 
   Augeas {
     require => Package[$php7::params::php7_fpm_package]
