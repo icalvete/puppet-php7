@@ -37,7 +37,7 @@ class php7 (
   }
 
   if $fpm {
-      class {'php7::php7-fpm':
+      class {'php7::php7_fpm':
         require => Class['php7::config'],
       }
   }
