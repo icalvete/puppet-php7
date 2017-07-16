@@ -2,7 +2,7 @@ define php7::php7_fpm::config_forcetype (
   $forcetypes = undef
 ) {
 
-  include php7::php7-fpm
+  include php7::php7_fpm
 
   validate_array($forcetypes)
 
