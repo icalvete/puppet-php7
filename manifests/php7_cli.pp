@@ -21,8 +21,12 @@ class php7::php7_cli (
     ]
   }
 
-  class {'php7::php7_cli::config':
+  class {'php7::php7_cli::common_post_install':
     require => Class['php7::php7_cli::install']
+  }
+
+  class {'php7::php7_cli::config':
+    require => Class['php7::php7_cli::common_post_install']
   }
 
   anchor {'php7::php7_cli::end':
