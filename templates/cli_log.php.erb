@@ -1,3 +1,8 @@
+<%
+
+    env = scope.lookupvar('php7::env') || 'PRO'
+
+-%>
 <?php
 
-openlog('::php-cli::<%= scope.lookupvar('php7::env') -%>::-', 0, <%= scope.lookupvar('php7::params::syslog_facility_php') -%>);
+openlog('::php-cli::<%= env -%>::-', 0, <%= scope.lookupvar('php7::params::syslog_facility_php') -%>);
