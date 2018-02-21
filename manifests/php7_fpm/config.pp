@@ -60,7 +60,7 @@ class php7::php7_fpm::config {
   }
 
   exec{ 'config_www_pool_max_children':
-    command => "/bin/sed -i -e \"s/pm.max_children = .*/pm.max_children = 100/\" ${php7::params::php7_fpm_www_pool}",
+    command => "/bin/sed -i -e \"s/pm.max_children = .*/pm.max_children = 128/\" ${php7::params::php7_fpm_www_pool}",
     unless  => "/bin/grep 'pm.max_children = 128' ${php7::params::php7_fpm_www_pool}"
   }
 
@@ -70,12 +70,12 @@ class php7::php7_fpm::config {
   }
 
   exec{ 'config_www_pool_min_spare_servers':
-    command => "/bin/sed -i -e \"s/pm.min_spare_servers = .*/pm.min_spare_servers = 20/\" ${php7::params::php7_fpm_www_pool}",
+    command => "/bin/sed -i -e \"s/pm.min_spare_servers = .*/pm.min_spare_servers = 32/\" ${php7::params::php7_fpm_www_pool}",
     unless  => "/bin/grep 'pm.min_spare_servers = 32' ${php7::params::php7_fpm_www_pool}"
   }
 
   exec{ 'config_www_pool_max_spare_servers':
-    command => "/bin/sed -i -e \"s/pm.max_spare_servers = .*/pm.max_spare_servers = 30/\" ${php7::params::php7_fpm_www_pool}",
+    command => "/bin/sed -i -e \"s/pm.max_spare_servers = .*/pm.max_spare_servers = 64/\" ${php7::params::php7_fpm_www_pool}",
     unless  => "/bin/grep 'pm.max_spare_servers = 64' ${php7::params::php7_fpm_www_pool}"
   }
 
