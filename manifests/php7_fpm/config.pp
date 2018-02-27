@@ -116,6 +116,13 @@ class php7::php7_fpm::config {
       mode    => '0644',
     }
   }
+ 
+  file {'maxminddb_config':
+    ensure  => file,
+    path    => "${php7::params::php7_fpm_phpconf}/20-maxminddb.ini",
+    content => template("${module_name}/maxminddb.ini.erb"),
+    mode    => '0644',
+  }
 
   if $php7::env == 'DEV' {
     augeas{'display_errors_fpm':

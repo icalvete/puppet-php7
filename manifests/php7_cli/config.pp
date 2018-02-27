@@ -33,6 +33,13 @@ class php7::php7_cli::config {
     ]
   }
 
+  file {'cli_maxminddb_config':
+    ensure  => file,
+    path    => "${php7::params::php7_cli_phpconf}/20-maxminddb.ini",
+    content => template("${module_name}/maxminddb.ini.erb"),
+    mode    => '0644',
+  }
+
   augeas{'cli_debug' :
     context => "/files/${php7::params::php7_cli_phpini}/PHP",
     changes => [
