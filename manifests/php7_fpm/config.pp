@@ -131,7 +131,7 @@ class php7::php7_fpm::config {
     }
   }
 
-  if $environment == 'DEV' {
+  if $php7::env == 'DEV' {
 
     file {'xdebug_config':
       ensure  => file,

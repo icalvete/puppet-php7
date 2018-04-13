@@ -4,7 +4,7 @@ class php7::modules inherits php7::params {
     php7::module { $php7::params::php7_modules:}
   }
 
-  if $environment == 'DEV' {
+  if $php7::env == 'DEV' {
 
     package { 'php-xdebug':
       ensure  => present,

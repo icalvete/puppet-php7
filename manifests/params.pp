@@ -9,7 +9,7 @@ class php7::params {
     }
   }
 
-  $env      = $::environment
+  $env      = $::env
   $timezone = 'Europe/Madrid'
 
   $phalcon_support = {

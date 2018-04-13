@@ -5,7 +5,7 @@ class php7 (
   $phalcon                         = false,
   $opcache                         = false,
   $opcache_blacklist               = [''],
-  $env                             = pick($environment, $php7::params::env),
+  $env                             = pick($::env, $php7::params::env),
   $file_uploads                    = 'Off',
   $file_uploads_size               = $php7::params::file_uploads_size,
   $max_execution_time_cli          = $php7::params::max_execution_time,
