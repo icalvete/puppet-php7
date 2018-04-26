@@ -8,16 +8,16 @@ class php7::php7_fpm inherits php7::params {
     require => Anchor['php7::php7_fpm::begin']
   }
 
-  class {'php7::php7_fpm::common_post_install':
-    require => Class['php7::php7_fpm::install']
+  class {'php7::php7_fpm::config':
+    require => Class['php7::php7_fpm::install'],
   }
 
-  class {'php7::php7_fpm::config':
-    require => Class['php7::php7_fpm::common_post_install'],
+  class {'php7::php7_fpm::common_post_install':
+    require => Class['php7::php7_fpm::config']
   }
 
   class {'php7::php7_fpm::service':
-    subscribe => Class['php7::php7_fpm::config']
+    subscribe => Class['php7::php7_fpm::common_post_install']
   }
 
   anchor {'php7::php7_fpm::end':

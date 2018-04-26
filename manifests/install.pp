@@ -2,7 +2,9 @@ class php7::install inherits php7::params {
 
   package {$php7::params::php7_package:
     ensure  => present,
-    require =>  Class['apt::update']
+    require =>  [
+      Apt::Ppa['ppa:ondrej/php'],
+      Class['apt::update']]
   }
 
   class {'php7::php7_cli':

@@ -2,8 +2,11 @@ class php7::php7_cli::install {
 
   package {$php7::params::php7_cli_package:
     ensure  => present,
-    require => Class['apt::update']
+    require => Class['apt::update'],
+    before  => Class['php7::modules']
   }
+  
+  include php7::modules
 
   file {'cli_syslog_config':
     ensure  => present,

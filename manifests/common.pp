@@ -20,6 +20,4 @@ class php7::common inherits php7::params {
     group  => 'root',
     mode   => '0775',
   }
-
-  include php7::modules
 }
