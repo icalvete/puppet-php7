@@ -1,5 +1,10 @@
 class php7::install inherits php7::params {
 
+  package { 'libmaxminddb0':
+    ensure => present,
+    before => Package[$php7::params::php7_package]
+  }
+
   package {$php7::params::php7_package:
     ensure  => present,
     require =>  [
