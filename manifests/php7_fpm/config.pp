@@ -99,6 +99,16 @@ class php7::php7_fpm::config {
     unless  => "/bin/grep 'log_level = ${php7::params::log_level}'"
   }
 
+  exec{ 'config_fpm_max_requests':
+    command => "/bin/sed -i -e \"s/;\?pm.max_requests = .*/pm.max_requests = 512/\" ${php7::params::php7_fpm_www_pool}",
+    unless  => "/bin/grep 'pm.max_requests = 512' ${php7::params::php7_fpm_www_pool}"
+  }
+
+    exec{ 'config_fpm_process_idle_timeout':
+      command => "/bin/sed -i -e \"s/;\?pm.process_idle_timeout = .*/pm.process_idle_timeout = 16s;/\" ${php7::params::php7_fpm_www_pool}",
+      unless  => "/bin/grep 'pm.process_idle_timeout = 16s;' ${php7::params::php7_fpm_www_pool}"
+    }
+
   if $php7::opcache {
     augeas{'opcache_config_fpm':
       context => "/files/${php7::params::php7_fpm_phpini}/PHP",
