@@ -1,6 +1,6 @@
 class php7::php7_cli::install {
 
-  package {$php7::params::php7_cli_package:
+  package {$php7::php7_cli_package:
     ensure  => present,
     require => Class['apt::update'],
     before  => Class['php7::modules']
@@ -10,18 +10,33 @@ class php7::php7_cli::install {
 
   file {'cli_syslog_config':
     ensure  => present,
-    path    => "${php7::params::php7_includepath}/cli_log.php",
+    path    => "${php7::php7_includepath}/cli_log.php",
     content => template("${module_name}/cli_log.php.erb"),
     mode    => '0664',
   }
 
   file { 'maxminddb.so':
     ensure  => present,
-    path    => "${php7::params::extension_dir}/maxminddb.so",
+    path    => "${php7::extension_dir}/maxminddb.so",
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
-    source  => "puppet:///modules/${module_name}/extensions/maxminddb7.${php7::params::version}.so",
-    require => Package[$php7::params::php7_cli_package]
+    source  => "puppet:///modules/${module_name}/extensions/maxminddb7.${php7::version}.so",
+    require => Package[$php7::php7_cli_package]
+  }
+
+  if "${php7::version}" == '2' {
+
+    package{'libmcrypt4':}
+
+    file { 'mcrypt.so':
+      ensure  => present,
+      path    => "${php7::extension_dir}/mcrypt.so",
+      owner   => 'root',
+      group   => 'root',
+      mode    => '0664',
+      source  => "puppet:///modules/${module_name}/extensions/mcrypt7.${php7::version}.so",
+      require => Package[$php7::php7_cli_package]
+    }
   }
 }

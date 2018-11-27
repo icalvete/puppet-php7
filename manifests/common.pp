@@ -15,7 +15,7 @@ class php7::common inherits php7::params {
 
   file {'php7_include_path_dir':
     ensure => directory,
-    path   => $php7::params::php7_includepath,
+    path   => $php7::php7_includepath,
     owner  => 'root',
     group  => 'root',
     mode   => '0775',
