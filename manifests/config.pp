@@ -5,7 +5,7 @@ class php7::config {
     changes => [
       "set memcached.compression_threshold ${php7::memcached_compression_threshold}",
     ],
-    require => Package['php-memcached']
+    require =>  [Class['php7::modules'], Package['php-memcached']]
   }
 
   include  php7::php7_cli::config
