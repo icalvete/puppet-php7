@@ -1,6 +1,6 @@
 class php7::php7_cli::install {
 
-  package {$php7::common::php7_cli_package:
+  package {$php7::php7_cli::php7_cli_package:
     ensure  => present,
     require => Class['apt::update'],
     before  => Class['php7::modules']
@@ -21,11 +21,11 @@ class php7::php7_cli::install {
     owner   => 'root',
     group   => 'root',
     mode    => '0664',
-    source  => "puppet:///modules/${module_name}/extensions/maxminddb7.${php7::common::version}.so",
-    require => Package[$php7::common::php7_cli_package]
+    source  => "puppet:///modules/${module_name}/extensions/maxminddb7.${php7::php7_cli::version}.so",
+    require => Package[$php7::php7_cli::php7_cli_package]
   }
 
-  if "${php7::common::version}" == '2' {
+  if "${php7::php7_cli::version}" >= '2' {
 
     package{'libmcrypt4':}
 
@@ -35,7 +35,7 @@ class php7::php7_cli::install {
       owner   => 'root',
       group   => 'root',
       mode    => '0664',
-      source  => "puppet:///modules/${module_name}/extensions/mcrypt7.${php7::common::version}.so",
+      source  => "puppet:///modules/${module_name}/extensions/mcrypt7.${php7::php7_cli::version}.so",
       equire => Package[$php7::common::php7_common_package]
     }
   }

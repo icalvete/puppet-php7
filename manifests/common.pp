@@ -1,6 +1,10 @@
 class php7::common inherits php7::params {
 
-  $version = $php7::version
+  if defined('php7::php7_cli') {
+    $version = $php7::php7_cli::version
+  } else {
+    $version = $php7::version
+  }
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
@@ -29,6 +33,10 @@ class php7::common inherits php7::params {
         }
         2: {
           $extension_dir     = '/usr/lib/php/20170718'
+          $php7_modules = ["php7.${version}-curl","php7.${version}-mysql", "php7.${version}-json", "php7.${version}-gd", "php7.${version}-mbstring", "php7.${version}-bcmath", "php7.${version}-xml", "php7.${version}-sqlite3", "php7.${version}-zip", "php7.${version}-gmp", "php7.${version}-bz2",  'php-mongodb', 'php-memcached', 'php-imagick', 'php-redis']
+        }
+        3: {
+          $extension_dir     = '/usr/lib/php/20180731'
           $php7_modules = ["php7.${version}-curl","php7.${version}-mysql", "php7.${version}-json", "php7.${version}-gd", "php7.${version}-mbstring", "php7.${version}-bcmath", "php7.${version}-xml", "php7.${version}-sqlite3", "php7.${version}-zip", "php7.${version}-gmp", "php7.${version}-bz2",  'php-mongodb', 'php-memcached', 'php-imagick', 'php-redis']
         }
         default: {

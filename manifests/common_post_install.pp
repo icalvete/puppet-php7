@@ -1,8 +1,10 @@
-class php7::common_post_install (
+class php7::common_post_install inherits php7::params {
 
-  $version = $php7::params::version
-
-) inherits php7::params {
+  if defined('php7::php7_cli') {
+    $version = $php7::php7_cli::version
+  } else {
+    $version = $php7::version
+  }
 
   case $facts['os']['distro']['codename'] {
     'bionic': {
