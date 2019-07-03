@@ -1,10 +1,10 @@
 class php7::common inherits php7::params {
 
-  if defined('php7::php7_cli') {
-    $version = $php7::php7_cli::version
-  } else {
-    $version = $php7::version
-  }
+    if $php7::version {
+      $version = $php7::version
+    } else {
+      $version = $php7::php7_cli::version
+    }
 
   case $::operatingsystem {
     /^(Debian|Ubuntu)$/: {
