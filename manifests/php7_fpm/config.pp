@@ -151,8 +151,8 @@ class php7::php7_fpm::config {
     }
   }
 
-  if "${php7::common::version}" == '2' {
-    file_line { "${php7::common::php7_fpm_phpini}":
+  if Integer($php7::common::version) > 1 {
+    file_line { "mcrypt_${php7::common::php7_fpm_phpini}":
       path  => "${php7::common::php7_fpm_phpini}",
       line  => 'extension=mcrypt.so',
     }

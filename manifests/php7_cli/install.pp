@@ -36,7 +36,7 @@ class php7::php7_cli::install {
       group   => 'root',
       mode    => '0664',
       source  => "puppet:///modules/${module_name}/extensions/mcrypt7.${php7::php7_cli::version}.so",
-      equire => Package[$php7::common::php7_common_package]
+      require => Package[$php7::common::php7_common_package]
     }
   }
 }

@@ -55,9 +55,9 @@ class php7::php7_cli::config {
     }
   }
 
-  if "${php7::common::version}" == '2' {
-    file_line { "${php7::common::common_phpini}":
-      path  => "${php7::common::common_phpini}",
+  if Integer($php7::common::version) > 1 {
+    file_line { "mcrypt_${php7::common::php7_cli_phpini}":
+      path  => "${php7::common::php7_cli_phpini}",
       line  => 'extension=mcrypt.so',
     }
   }
