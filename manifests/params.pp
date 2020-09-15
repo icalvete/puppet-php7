@@ -29,5 +29,7 @@ class php7::params {
   $max_execution_time = '15'
   $memory_limit       = '32M'
 
+  $max_requests_fpm   = '512'
+
   $memcached_compression_threshold = 15000
 }

@@ -1,4 +1,8 @@
-class php7::php7_fpm inherits php7::params {
+class php7::php7_fpm (
+
+  $max_requests_fpm = 512
+
+)inherits php7::params {
 
   anchor {'php7::php7_fpm::begin':
     before => Class['php7::php7_fpm::install']

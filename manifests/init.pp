@@ -13,6 +13,7 @@ class php7 (
   $max_execution_time_fpm          = $php7::params::max_execution_time,
   $memory_limit_cli                = $php7::params::memory_limit,
   $memory_limit_fpm                = $php7::params::memory_limit,
+  $max_requests_fpm                = $php7::params::max_requests_fpm,
   $memcached_compression_threshold = $php7::params::memcached_compression_threshold
 
 ) inherits php7::params {
@@ -40,7 +41,8 @@ class php7 (
 
   if $fpm {
       class {'php7::php7_fpm':
-        require => Class['php7::config'],
+        max_requests_fpm => $max_requests_fpm,
+        require          => Class['php7::config']
       }
   }
 

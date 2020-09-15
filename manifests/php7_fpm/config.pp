@@ -100,8 +100,8 @@ class php7::php7_fpm::config {
   }
 
   exec{ 'config_fpm_max_requests':
-    command => "/bin/sed -i -e \"s/;\?pm.max_requests = .*/pm.max_requests = 512/\" ${php7::common::php7_fpm_www_pool}",
-    unless  => "/bin/grep 'pm.max_requests = 512' ${php7::common::php7_fpm_www_pool}"
+    command => "/bin/sed -i -e \"s/;\?pm.max_requests = .*/pm.max_requests = ${php7::php7_fpm::max_requests_fpm}/\" ${php7::common::php7_fpm_www_pool}",
+    unless  => "/bin/grep 'pm.max_requests = ${php7::php7_fpm::max_requests_fpm}' ${php7::common::php7_fpm_www_pool}"
   }
 
     exec{ 'config_fpm_process_idle_timeout':
